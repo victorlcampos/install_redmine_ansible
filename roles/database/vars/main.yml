@@ -1,0 +1,9 @@
+---
+
+mysql_print_only: 'true'
+mysql_impl: 'mariadb'
+mysql_root_password: 'root_password'
+mysql_dbname: 'redmine'
+mysql_host: 'mammoth.local'
+mysql_username: 'redmine'
+mysql_password: 'redmine_password'

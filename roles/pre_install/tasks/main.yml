@@ -1,0 +1,29 @@
+- name: test connection
+  ping:
+- name: install packges
+  yum: name={{item.name}} state=latest
+  with_items:
+    - { name: 'svn'}
+    - { name: 'git'}
+    - { name: 'git-svn'}
+    - { name: 'telnet'}
+    - { name: 'gcc-c++'}
+    - { name: 'patch'}
+    - { name: 'readline'}
+    - { name: 'readline-devel'}
+    - { name: 'zlib'}
+    - { name: 'zlib-devel'}
+    - { name: 'libcurl-devel'}
+    - { name: 'ImageMagick'}
+    - { name: 'ImageMagick-devel'}
+    - { name: 'libyaml-devel'}
+    - { name: 'libffi-devel'}
+    - { name: 'openssl-devel'}
+    - { name: 'make'}
+    - { name: 'bzip2'}
+    - { name: 'autoconf'}
+    - { name: 'automake'}
+    - { name: 'libtool'}
+    - { name: 'bison'}
+- name: Disable selinux
+  shell: sed --in-place "s/SELINUX=enforcing/SELINUX=permissive/g" /etc/selinux/config && setenforce 0

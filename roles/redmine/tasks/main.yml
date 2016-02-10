@@ -1,0 +1,7 @@
+- name: 'Generate SSH'
+  shell: if [[ ! -e ~/.ssh/id_rsa.pub ]]; then ssh-keygen -N '' -f ~/.ssh/id_rsa; fi
+- name: 'Show ssh'
+  shell: cat ~/.ssh/id_rsa.pub
+  register: result
+- debug: msg={{result.stdout_lines}}
+- pause:

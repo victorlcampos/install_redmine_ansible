@@ -1,0 +1,4 @@
+- debug: msg='mysql -h {{mysql_host}} -u root `if [[ "{{mysql_root_password}}" != "" ]]; then echo -n "-p{{mysql_root_password}}"; fi` -e ""create user {{mysql_username}} identified by '{{mysql_password}}';"'
+- debug: msg='mysql -h {{mysql_host}} -u root `if [[ "{{mysql_root_password}}" != "" ]]; then echo -n "-p{{mysql_root_password}}"; fi` -e ""create database {{mysql_dbname}} character set utf8;"'
+- debug: msg='mysql -h {{mysql_host}} -u root `if [[ "{{mysql_root_password}}" != "" ]]; then echo -n "-p{{mysql_root_password}}"; fi` -e ""grant all privileges on {{mysql_dbname}.* to '{{mysql_username}}'@'%' identified by '{{mysql_password}}';"'
+- debug: msg='mysql -h {{mysql_host}} -u root `if [[ "{{mysql_root_password}}" != "" ]]; then echo -n "-p{{mysql_root_password}}"; fi` -e ""flush privileges;"'

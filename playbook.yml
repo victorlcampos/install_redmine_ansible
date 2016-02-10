@@ -1,0 +1,20 @@
+---
+- hosts: '*'
+  vars:
+    ruby_version: '2.2'
+    redmine_path: '/opt/redmine'
+    redmine_branch: 'redmine-3.1'
+    mysql_print_only: 'true'
+    mysql_impl: 'mariadb'
+    mysql_root_password: 'fill_root_pass_here'
+    mysql_dbname: 'fill_dbname_here'
+    mysql_host: 'mammoth.local'
+    mysql_username: 'redmine'
+    mysql_password: 'fill_user_pass_here'
+  remote_user: root
+  sudo: yes
+  roles:
+    # - pre_install
+    # - { role: rvm1-ansible, tags: ruby, sudo: True, rvm1_rubies: 'ruby-{{ruby_version}}' }
+    # - database
+    - redmine
