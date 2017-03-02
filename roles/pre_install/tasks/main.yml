@@ -3,9 +3,7 @@
 - name: install packges
   yum: name={{item.name}} state=latest
   with_items:
-    - { name: 'svn'}
     - { name: 'git'}
-    - { name: 'git-svn'}
     - { name: 'telnet'}
     - { name: 'gcc-c++'}
     - { name: 'patch'}
