@@ -12,7 +12,7 @@
     mysql_username: 'redmine'
     mysql_password: 'fill_user_pass_here'
   remote_user: root
-  sudo: yes
+  become: yes
   roles:
     # - pre_install
     # - { role: rvm1-ansible, tags: ruby, sudo: True, rvm1_rubies: 'ruby-{{ruby_version}}' }
