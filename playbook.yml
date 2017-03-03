@@ -4,25 +4,26 @@
     ruby_version: '2.3.3'
     redmine_path: '/opt/redmine'
     redmine_branch: 'redmine-3.1'
-    mysql_print_only: 'true'
-    mysql_impl: 'mariadb'
-    mysql_root_password: 'fill_root_pass_here'
-    mysql_dbname: 'fill_dbname_here'
-    mysql_host: 'mammoth.local'
-    mysql_username: 'redmine'
-    mysql_password: 'fill_user_pass_here'
+    database_root_user: 'fill_root_pass_here'
+    database_root_password: 'fill_root_pass_here'
+    database_dbname: 'fill_dbname_here'
+    database_host: 'mammoth.local'
+    database_username: 'redmine'
+    database_password: 'fill_user_pass_here'
+    database_repo_url: https://download.postgresql.org/pub/repos/yum/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-3.noarch.rpm
+    database_version: 94
   remote_user: root
   become: yes
   roles:
     # - pre_install
     # - security
-    - { role: rvm1-ansible,
-        tags: ruby,
-        become: yes,
-        rvm1_rubies: ['ruby-{{ruby_version}}'],
-        rvm1_install_flags: '--auto-dotfiles',     # Remove --user-install from defaults
-        rvm1_install_path: /usr/local/rvm,         # Set to system location
-        rvm1_user: root                            # Need root account to access system location
-      }
-    # - database
+    # - { role: rvm1-ansible,
+    #     tags: ruby,
+    #     become: yes,
+    #     rvm1_rubies: ['ruby-{{ruby_version}}'],
+    #     rvm1_install_flags: '--auto-dotfiles',     # Remove --user-install from defaults
+    #     rvm1_install_path: /usr/local/rvm,         # Set to system location
+    #     rvm1_user: root                            # Need root account to access system location
+    #   }
+    - database
     # - redmine

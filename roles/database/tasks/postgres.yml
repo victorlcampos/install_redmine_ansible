@@ -1,0 +1,12 @@
+- name: Install repository
+  yum: name={{ database_repo_url }} state=latest
+
+- name: Install postgres client
+  yum: name={{item.name}} state=latest
+  with_items:
+    - { name: 'postgresql{{ database_version }}'}
+    - { name: 'postgresql{{ database_version }}-devel'}
+
+# - name: Create database user
+
+# - name: Create database
