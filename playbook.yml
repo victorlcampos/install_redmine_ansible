@@ -15,6 +15,7 @@
   become: yes
   roles:
     # - pre_install
+    - security
     # - { role: rvm1-ansible, tags: ruby, sudo: True, rvm1_rubies: 'ruby-{{ruby_version}}' }
     # - database
-    - redmine
+    # - redmine

@@ -1,0 +1,14 @@
+- name: Disable selinux
+  shell: sed --in-place "s/SELINUX=enforcing/SELINUX=permissive/g" /etc/selinux/config && setenforce 0
+- name: Open firewall to http connections
+  firewalld:
+    immediate: true
+    service: http
+    permanent: true
+    state: enabled
+- name: Open firewall to https connections
+  firewalld:
+    immediate: true
+    service: https
+    permanent: true
+    state: enabled
