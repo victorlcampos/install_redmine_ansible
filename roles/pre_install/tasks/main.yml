@@ -1,8 +1,16 @@
 - name: test connection
   ping:
+- name: Add EPEL repository
+  yum_repository:
+    name: epel
+    description: EPEL YUM repo
+    baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
 - name: install packges
   yum: name={{item.name}} state=latest
   with_items:
+    - { name: 'bash-completion'}
+    - { name: 'bash-completion-extras'}
+    - { name: 'htop'}
     - { name: 'git'}
     - { name: 'telnet'}
     - { name: 'gcc-c++'}
@@ -23,5 +31,3 @@
     - { name: 'automake'}
     - { name: 'libtool'}
     - { name: 'bison'}
-- name: Disable selinux
-  shell: sed --in-place "s/SELINUX=enforcing/SELINUX=permissive/g" /etc/selinux/config && setenforce 0
