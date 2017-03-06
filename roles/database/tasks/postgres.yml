@@ -1,12 +1,27 @@
 - name: Install repository
-  yum: name={{ database_repo_url }} state=latest
+  yum: name={{ database_repo_url }} state=present
 
 - name: Install postgres client
   yum: name={{item.name}} state=latest
   with_items:
     - { name: 'postgresql{{ database_version }}'}
     - { name: 'postgresql{{ database_version }}-devel'}
+    - { name: 'python-psycopg2'}
 
-# - name: Create database user
+- name: Create Database
+  postgresql_db:
+    login_host: '{{ database_host }}'
+    login_user: '{{ database_root_user }}'
+    login_password: '{{ database_root_password }}'
+    name: '{{ database_dbname }}'
+    encoding: UTF-8
 
-# - name: Create database
+- name: Create Database User
+  postgresql_user:
+    login_host: '{{ database_host }}'
+    login_user: '{{ database_root_user }}'
+    login_password: '{{ database_root_password }}'
+    db: '{{ database_dbname }}'
+    name: '{{ database_username }}'
+    password: '{{ database_password }}'
+    priv: "ALL"

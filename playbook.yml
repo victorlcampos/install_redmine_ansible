@@ -1,20 +1,9 @@
 ---
 - hosts: '*'
-  vars:
-    ruby_version: '2.3.3'
-    redmine_path: '/opt/redmine'
-    redmine_branch: 'redmine-3.1'
-    database_root_user: 'fill_root_pass_here'
-    database_root_password: 'fill_root_pass_here'
-    database_dbname: 'fill_dbname_here'
-    database_host: 'mammoth.local'
-    database_username: 'redmine'
-    database_password: 'fill_user_pass_here'
-    database_repo_url: https://download.postgresql.org/pub/repos/yum/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-3.noarch.rpm
-    database_version: 94
   remote_user: root
   become: yes
   roles:
+    - vars
     # - pre_install
     # - security
     # - { role: rvm1-ansible,
