@@ -1,5 +1,0 @@
-- name: Clone Project Repository
-  git:
-    repo: '{{project_repo}}'
-    dest: '{{project_path}}'
-    version: '{{project_branch}}'

@@ -1,6 +1,33 @@
+- name: 'Generate SSH'
+  shell: if [[ ! -e ~/.ssh/id_rsa.pub ]]; then ssh-keygen -N '' -f ~/.ssh/id_rsa; fi
+
+- name: 'Show ssh'
+  shell: cat ~/.ssh/id_rsa.pub
+  register: result
+
+- debug: msg={{result.stdout_lines}}
+
+- pause:
+
 - name: Clone Project Repository
   git:
-    repo: '{{project_repo}}'
-    dest: '{{project_path}}'
-    version: '{{project_branch}}'
+    repo: '{{application_repo}}'
+    dest: '{{application_path}}'
+    version: '{{application_branch}}'
     accept_hostkey: yes
+
+- name: Template database configuration
+  template:
+    src: database.yml
+    dest: '{{ application_path }}/config/database.yml'
+
+- name: Install/update gems
+  bundler:
+    state: present
+    # deployment_mode: yes
+    chdir: '{{ application_path }}'
+
+- name: migrate the database
+  shell: RAILS_ENV={{ application_environment }} bundle exec rake db:migrate
+  args:
+    chdir: "{{ application_path }}"

@@ -1,0 +1,9 @@
+# Line indentation must be 2 spaces (no tabs).
+
+{{ application_environment }}:
+  adapter: {{ application_database_adapter }}
+  database: {{ database_dbname }}
+  host: {{ database_host }}
+  username: {{ database_username }}
+  password: {{ database_password }}
+  encoding: utf8

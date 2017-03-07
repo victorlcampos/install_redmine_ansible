@@ -15,4 +15,4 @@
     #     rvm1_user: root                            # Need root account to access system location
     #   }
     # - database
-    - redmine
+    - application

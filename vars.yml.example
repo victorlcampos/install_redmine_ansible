@@ -1,7 +1,11 @@
 ruby_version: '2.3.3'
-project_path: '/opt/redmine'
-project_repo: 'git://foosball.example.org/path/to/repo.git'
-project_branch: 'redmine-3.1'
+
+application_path: '/opt/redmine'
+application_repo: 'git://foosball.example.org/path/to/repo.git'
+application_branch: 'redmine-3.1'
+application_database_adapter: 'postgresql'
+application_environment: production
+
 database_host: 'mammoth.hq'
 database_dbname: 'fill_dbname_here'
 database_root_user: 'fill_root_pass_here'
