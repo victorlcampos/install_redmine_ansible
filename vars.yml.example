@@ -1,5 +1,6 @@
 ruby_version: '2.3.3'
 project_path: '/opt/redmine'
+project_repo: 'git://foosball.example.org/path/to/repo.git'
 project_branch: 'redmine-3.1'
 database_host: 'mammoth.hq'
 database_dbname: 'fill_dbname_here'

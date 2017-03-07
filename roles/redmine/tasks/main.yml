@@ -1,7 +1,5 @@
-- name: 'Generate SSH'
-  shell: if [[ ! -e ~/.ssh/id_rsa.pub ]]; then ssh-keygen -N '' -f ~/.ssh/id_rsa; fi
-- name: 'Show ssh'
-  shell: cat ~/.ssh/id_rsa.pub
-  register: result
-- debug: msg={{result.stdout_lines}}
-- pause:
+- name: Clone Project Repository
+  git:
+    repo: '{{project_repo}}'
+    dest: '{{project_path}}'
+    version: '{{project_branch}}'
