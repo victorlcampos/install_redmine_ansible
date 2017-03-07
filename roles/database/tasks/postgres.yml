@@ -4,9 +4,15 @@
 - name: Install postgres client
   yum: name={{item.name}} state=latest
   with_items:
-    - { name: 'postgresql{{ database_version }}'}
-    - { name: 'postgresql{{ database_version }}-devel'}
+    - { name: 'postgresql{{ database_version|replace(".", "") }}'}
+    - { name: 'postgresql{{ database_version|replace(".", "") }}-devel'}
     - { name: 'python-psycopg2'}
+
+- name: Symlink pg_config to default
+  file:
+    src: /usr/pgsql-{{ database_version }}/bin/pg_config
+    dest: /usr/bin/pg_config
+    state: link
 
 - name: Create Database
   postgresql_db:

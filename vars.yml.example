@@ -9,4 +9,4 @@ database_root_password: 'fill_root_pass_here'
 database_username: 'redmine'
 database_password: 'fill_user_pass_here'
 database_repo_url: https://download.postgresql.org/pub/repos/yum/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-3.noarch.rpm
-database_version: 94
+database_version: 9.4
