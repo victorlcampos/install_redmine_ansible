@@ -6,6 +6,11 @@ application_branch: 'redmine-3.1'
 application_database_adapter: 'postgresql'
 application_environment: production
 
+application_name: redmine
+application_context: /
+
+http_server_hostname: server_name.com
+
 database_host: 'mammoth.hq'
 database_dbname: 'fill_dbname_here'
 database_root_user: 'fill_root_pass_here'

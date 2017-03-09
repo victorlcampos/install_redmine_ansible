@@ -16,3 +16,4 @@
       }
     - database
     - application
+    - http_server # httpd / nginx
