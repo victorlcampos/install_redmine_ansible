@@ -31,3 +31,8 @@
   shell: RAILS_ENV={{ application_environment }} bundle exec rake db:migrate
   args:
     chdir: "{{ application_path }}"
+
+- name: Generate secret key
+  shell: "RAILS_ENV={{ application_environment }} rake generate_secret_token"
+  args:
+    chdir: "{{ application_path }}"
