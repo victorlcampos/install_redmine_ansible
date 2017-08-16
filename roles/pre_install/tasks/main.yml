@@ -5,6 +5,7 @@
   with_items:
     - { name: 'epel-release'}
     - { name: 'vim'}
+    - { name: 'firewalld'}
     - { name: 'bash-completion'}
     - { name: 'bash-completion-extras'}
     - { name: 'htop'}
