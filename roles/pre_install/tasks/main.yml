@@ -28,3 +28,5 @@
     - { name: 'automake'}
     - { name: 'libtool'}
     - { name: 'bison'}
+    - { name: 'mysql-devel'}
+    - { name: 'ruby-devel'}
