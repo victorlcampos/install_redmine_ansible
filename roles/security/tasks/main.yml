@@ -1,17 +1,21 @@
 - name: Disable selinux
+  become: true
   shell: sed --in-place "s/SELINUX=enforcing/SELINUX=permissive/g" /etc/selinux/config && setenforce 0
 - name: Start and enable firewalld.
+  become: true
   service:
     name: firewalld
     state: started
     enabled: true
 - name: Open firewall to http connections
+  become: true
   firewalld:
     immediate: true
     service: http
     permanent: true
     state: enabled
 - name: Open firewall to https connections
+  become: true
   firewalld:
     immediate: true
     service: https

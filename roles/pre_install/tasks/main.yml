@@ -2,6 +2,7 @@
   ping:
 - name: install packages
   yum: name={{item.name}} state=latest
+  become: true
   with_items:
     - { name: 'epel-release'}
     - { name: 'vim'}

@@ -1,24 +1,29 @@
 - name: NGINX | Installing NGINX repo rpm
+  become: true
   yum:
     name: http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
 
 - name: NGINX | Installing NGINX
+  become: true
   yum:
     name: nginx
     state: latest
 
 - name: NGINX | Starting NGINX
+  become: true
   service:
     name: nginx
     state: started
     enabled: yes
 
 - name: Configuration file template
+  become: true
   template:
     src: nginx.conf
     dest: '/etc/nginx/conf.d/{{ application_name }}.conf'
 
 - name: Reload NGINX
+  become: true
   service:
     name: nginx
     state: reloaded
