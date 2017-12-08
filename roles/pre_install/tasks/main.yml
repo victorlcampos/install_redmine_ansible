@@ -10,6 +10,7 @@
     - { name: 'bash-completion'}
     - { name: 'bash-completion-extras'}
     - { name: 'htop'}
+    - { name: 'rsync'}
     - { name: 'git'}
     - { name: 'telnet'}
     - { name: 'gcc-c++'}
