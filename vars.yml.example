@@ -1,6 +1,7 @@
 ruby_version: '2.3.3'
 
 application_path: '/opt/redmine'
+application_root: ''
 application_repo: 'git://foosball.example.org/path/to/repo.git'
 application_branch: 'redmine-3.1'
 application_database_adapter: 'postgresql'
