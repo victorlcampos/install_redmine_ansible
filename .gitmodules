@@ -1,3 +1,0 @@
-[submodule "roles/rvm1-ansible"]
-	path = roles/rvm1-ansible
-	url = https://github.com/visagio/rvm1-ansible.git
