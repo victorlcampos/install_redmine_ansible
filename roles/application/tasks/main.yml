@@ -10,6 +10,13 @@
     src: database.yml
     dest: '{{ application_path }}/{{application_root}}/config/database.yml'
 
+- name: Install Javascript Runtime
+  yum: name={{item.name}} state=latest
+  become: true
+  when: (javascript_runtime != '')
+  with_items:
+    - { name: '{{javascript_runtime}}'}
+
 - name: Install/update gems
   bundler:
     state: present

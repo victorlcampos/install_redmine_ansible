@@ -10,6 +10,8 @@ application_environment: production
 application_name: redmine
 application_context: /
 
+javascript_runtime: ''
+
 http_server_hostname: server_name.com
 
 database_host: 'mammoth.hq'
