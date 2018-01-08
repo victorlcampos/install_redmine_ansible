@@ -1,0 +1,10 @@
+- name: Create user
+  user:
+    name: '{{application_name}}'
+    groups: rvm
+
+- name: Set authorized key for application user
+  authorized_key:
+    user: '{{application_name}}'
+    state: present
+    key: "{{ssh_public_key}}"

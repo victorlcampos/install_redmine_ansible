@@ -13,5 +13,6 @@
         rvm1_user: root                            # Need root account to access system location
       }
     - database
-    - application
+    - user
+    - { role: application,  ansible_user: '{{application_name}}' }
     - http_server # httpd / nginx
