@@ -14,5 +14,6 @@
       }
     - database
     - user
+    - redis
     - { role: application,  ansible_user: '{{application_name}}' }
     - http_server # httpd / nginx

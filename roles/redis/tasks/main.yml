@@ -1,0 +1,12 @@
+- name: Redis | Installing Redis
+  become: true
+  yum:
+    name: redis
+    state: latest
+
+- name: Redis | Starting Redis
+  become: true
+  service:
+    name: redis
+    state: started
+    enabled: yes
