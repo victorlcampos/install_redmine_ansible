@@ -21,6 +21,7 @@
   bundler:
     state: present
     # deployment_mode: yes
+    exclude_groups: 'development,test'
     chdir: '{{ application_path }}/{{application_root}}'
 
 - name: migrate the database
