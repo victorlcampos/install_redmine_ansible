@@ -5,6 +5,7 @@
   become: true
   with_items:
     - { name: 'epel-release'}
+    - { name: 'screen'}
     - { name: 'vim'}
     - { name: 'firewalld'}
     - { name: 'bash-completion'}
