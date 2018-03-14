@@ -34,3 +34,10 @@
     - { name: 'bison'}
     - { name: 'mysql-devel'}
     - { name: 'ruby-devel'}
+
+- name: Install Javascript Runtime
+  yum: name={{item.name}} state=latest
+  become: true
+  when: (javascript_runtime != '')
+  with_items:
+    - { name: '{{javascript_runtime}}'}
