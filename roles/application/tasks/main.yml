@@ -4,7 +4,6 @@
     dest: '{{application_path}}'
     version: '{{application_branch}}'
     accept_hostkey: yes
-  remote_user: '{{application_name}}'
 
 - name: Template database configuration
   template:
