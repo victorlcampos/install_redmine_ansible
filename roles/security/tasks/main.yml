@@ -1,6 +1,8 @@
-- name: Disable selinux
-  become: true
-  shell: sed --in-place "s/SELINUX=enforcing/SELINUX=permissive/g" /etc/selinux/config && setenforce 0
+# Set (httpd_can_network_connect) flag on and keep it persistent across reboots
+- seboolean:
+    name: httpd_can_network_connect
+    state: yes
+    persistent: yes
 - name: Start and enable firewalld.
   become: true
   service:
