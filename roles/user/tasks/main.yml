@@ -1,10 +1,21 @@
 - name: Create user
+  become: true
   user:
     name: '{{application_name}}'
     groups: rvm
 
 - name: Set authorized key for application user
+  become: true
   authorized_key:
     user: '{{application_name}}'
     state: present
     key: "{{ssh_public_key}}"
+
+- name: Create directory for application
+  file:
+    path: '{{application_path}}'
+    state: directory
+    owner: '{{application_name}}'
+    group: '{{application_name}}'
+    mode: 0770
+  become: true
